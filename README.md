@@ -20,7 +20,7 @@
             <p class="mb-2 last:mb-0">Contributions to this repository are welcome! If you have any college materials
                 that you would like to share, please submit a pull request.</p>
             <h2>License</h2>
-            <p class="mb-2 last:mb-0">This repository is licensed under the <a href="LICENSE">MIT License</a>.</p>
+            <p class="mb-2 last:mb-0">This repository is licensed under the <a href="LICENSE.md">MIT License</a>.</p>
             <h2>Contact</h2>
             <p class="mb-2 last:mb-0">If you have any questions or concerns, please contact <a
                     href="mailto:h$kerjack@gmail.com">Jack</a>.</p>
