@@ -14,6 +14,6 @@
 <h2>License</h2>
 <p class="mb-2 last:mb-0">This repository is licensed under the <a href="LICENSE">MIT License</a>.</p>
 <h2>Contact</h2>
-<p class="mb-2 last:mb-0">If you have any questions or concerns, please contact <a href="mailto:you@example.com">Your Name</a>.</p>
+<p class="mb-2 last:mb-0">If you have any questions or concerns, please contact <a href="mailto:h$kerjack@gmail.com">Jack</a>.</p>
 <p class="mb-2 last:mb-0">To create a <code>README.md</code> file with this content, you can create a new file in your repository with the name <code>README.md</code> and paste the above content into it. The file should be in Markdown format, which is a lightweight markup language for creating formatted text.</p>
 <p class="mb-2 last:mb-0">If you need help with creating or editing Markdown files, there are many resources available online, such as the <a href="https://www.markdownguide.org/" target="_blank" rel="nofollow noopener noreferrer">Markdown Guide</a>.</p></div><div class="flex items-center justify-end transition-opacity group-hover:opacity-100 md:absolute md:-right-10 md:-top-2 md:opacity-0"></div></div></div>
