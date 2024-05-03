@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form</title>
+    <style>
+        * {
+            color: darkslategrey;
+            font-family: cursive;
+        }
+
+        .input-label {
+            display: inline-block;
+            width: auto;
+            min-width: 100px;
+            text-align: right;
+        }
+
+        .input-field {
+            border: 2px solid lightgray;
+            height: 30px;
+            width: 50%;
+        }
+
+        .btns {
+            margin: auto;
+            margin-left: 100px;
+        }
+
+        .btn {
+            margin: 5px;
+            padding: auto;
+            width: 70px;
+            height: 30px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background-color: rgb(178, 207, 207);
+            border: 2px solid black;
+            border-radius: 5px;
+        }
+
+        .submited-details {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #4a422ecc;
+            text-align: left;
+            padding: 8px;
+        }
+        .odd{
+            background-color: #bde2e9;
+        }
+        
+        .even{
+            background-color: #d2edd8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <label class="input-label" for="name">Name : </label>
+        <input class="input-field" type="text" name="Name" id="name" placeholder="Enter your name"><br>
+        <label class="input-label" for="email">Email : </label>
+        <input class="input-field" type="text" name="email" id="email" placeholder="Enter your email"><br>
+        <label class="input-label" for="phone">Phone : </label>
+        <input class="input-field" type="text" name="phone" id="phone" placeholder="Enter your phone"><br>
+        <span><label class="input-label" for="gender">Gender : </label>
+            <input type="radio" value="village" name="gender-m" id="male">Male
+            <input type="radio" value="village" name="gender-m" id="female">Female
+        </span> <br>
+        <span>
+            <lable class="input-label">Yes</lable>
+            <input type="checkbox" name="istudent" id="istudent">I am a Student<br>
+            <label class="input-label" for="privacy">I accept </label>
+            <input type="checkbox" name="policy" id="policy"> the privacy and policy.<br>
+        </span>
+        <div class="btns">
+            <input class="btn" type="button" id="submit" value="Submit">
+            <input class="btn" type="button" id="reset" value="Reset">
+        </div>
+    </div>
+    <div class="submited">
+        <table id="table" class="submited-details">
+            <tr>
+                <th>SL NO</th>
+                <th contenteditable="true">Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Student</th>
+                <th>Policy</th>
+            </tr>
+        </table>
+    </div>
+    <script>
+        const tbl = document.getElementById("table");
+        
+        const name = document.getElementById("name");
+        const email = document.getElementById("email");
+        const phone = document.getElementById("phone");
+
+        const rmale = document.getElementById("male");
+        const rfemale = document.getElementById("female");
+
+        const istudent = document.getElementById("istudent")
+        const policy = document.getElementById("policy")
+
+        const submit = document.getElementById("submit");
+        const reset = document.getElementById("reset");
+
+
+        let count = 1;
+
+        function checkfield() {
+            if(name.value.replaceAll(" ", "") == ""){
+                alert("name not entered currectly.")
+                return false;
+            }
+            if(email.value.replaceAll(" ", "") == ""){
+                alert("email not entered currectly.")
+                return false;
+            }
+            if (phone.value.replaceAll(" ", "") == ""){
+                alert("enter the phone please");
+                return false;
+            }
+            if(!(rmale.checked || rfemale.checked)){
+                alert("please select your gender");
+                return false;
+            }
+            return true;
+        }
+
+
+        submit.onclick = function() {
+            if (checkfield()) {
+                let tname = name.value;
+                let temail = email.value;
+                let tphone = phone.value;
+                let gendr = "";
+                let istd = "";
+                let plcy = "";
+                if(rmale.checked){
+                    gendr = "Male";
+                }else{
+                    gendr = "Female";
+                }
+                if(istudent.checked){
+                    istd = "Yes";
+                }else{
+                    istd = "No";
+                }
+                if(policy.checked){
+                    plcy = "Yes";
+                }else{
+                    plcy = "No";
+                }
+                let oddeven = "even"
+                if(count%2){
+                    oddeven = "odd";
+                }
+                tbl.innerHTML += `<tr class="${oddeven}">
+                <td contenteditable="false">${count++}</td>
+                <td contenteditable="true">${tname}</td>
+                <td contenteditable="true">${temail}</td>
+                <td contenteditable="true">${tphone}</td>
+                <td contenteditable="false">${gendr}</td>
+                <td contenteditable="false">${istd}</td>
+                <td contenteditable="false">${plcy}</td>
+            </tr>`
+            }
+        }
+        reset.onclick = function () {
+            name.value = ""
+            email.value = ""
+            phone.value = ""
+            rmale.checked = false;
+            rfemale.checked = false;
+            istudent.checked = false;
+            policy.checked = false;
+        }
+    </script>
+</body>
+
+</html>

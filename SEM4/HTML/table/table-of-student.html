@@ -1,0 +1,138 @@
+<!-- Create a table having students’ Roll, Name and Grade -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        .odd-row{
+            background-color: #bde2e9;
+        }
+        
+        .even-row{
+            background-color: #d2edd8;
+        }
+
+        .input-field {
+            margin-top: 20px;
+        }
+
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: right;
+        }
+
+        input[type="text"] {
+            width: 30%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100px;
+            margin-left: 104px;
+        }
+
+        input[type="button"]:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>This page consist Student information.</h3>
+    <table id="studentinfo">
+        <tr>
+            <th>SL NO</th>
+            <th>Name</th>
+            <th>Roll No</th>
+            <th>Grade</th>
+        </tr>
+        <tr class="odd-row">
+            <td>1</td>
+            <td>Susanta Jain</td>
+            <td>265</td>
+            <td>C</td>
+        </tr>
+        <tr class="even-row">
+            <td>2</td>
+            <td>Souvik Bhat</td>
+            <td>112</td>
+            <td>A+</td>
+        </tr>
+        <tr class="odd-row">
+            <td>3</td>
+            <td>Tapal Karmakar</td>
+            <td>3</td>
+            <td>O</td>
+        </tr>
+        <tr class="even-row">
+            <td>4</td>
+            <td>Anamoi Singha</td>
+            <td>15</td>
+            <td>B+</td>
+        </tr>
+    </table>
+    <br>
+    <div class="input-field">
+        <label for="Name">Name: </label>
+        <input id="name" type="text" placeholder="Enter Name"><br>
+        <label for="Roll No">Roll No: </label>
+        <input id="rollno" type="text" placeholder="Enter Roll"><br>
+        <label for="Grade">Grade : </label>
+        <input id="grade" type="text" placeholder="Enter Grade"><br>
+        <input type="button" id="submit" value="Submit">
+    </div>
+    <script>
+        const submit = document.getElementById("submit");
+        const table = document.getElementById("studentinfo");
+        const name = document.getElementById("name");
+        const rollno = document.getElementById("rollno");
+        const grade = document.getElementById("grade");
+        let sl = 4;
+        submit.onclick = function () {
+            if (name.value.replace(" ","") == "" || rollno.value.replace(" ","") == "" || grade.value.replace(" ","") == "") {
+                alert("Please enter valid data.");
+                return;
+            }
+
+            let cls = ""
+            if(sl%2){
+                cls = "even-row";
+            }else{
+                cls = "odd-row";
+            }
+            table.innerHTML += `<tr class="${cls}">
+                <td>${++sl}</td>
+                <td>${name.value}</td>
+                <td>${rollno.value}</td>
+                <td>${grade.value}</td>
+            </tr>`;
+        }
+    </script>
+</body>
+
+</html>
